@@ -17,31 +17,37 @@ class Database
     {
     }
 
+    public static function getConnection(): ConnectionInterface
+    {
+        return self::$con;
+    }
+
     protected function __clone()
     {
     }
 
     public static function getInstance(): Database
     {
-        if(!isset(self::$instance)){
+        if (!isset(self::$instance)) {
             self::$instance = new static();
         }
 
-        if(method_exists(self::$instance, 'initialize')){
+        if (method_exists(self::$instance, 'initialize')) {
             self::$instance->initialize();
         }
 
         return self::$instance;
     }
 
-    private static function setCredentials(string $name, string $password, string $dbName = "Party", string $dbUrl = "127.0.0.1"){
+    private static function setCredentials(string $name, string $password, string $dbName = "Party", string $dbUrl = "127.0.0.1")
+    {
         self::$dbCredentials = ['username' => $name, "password" => $password, 'dbname' => $dbName, "dbOrigin" => $dbUrl];
 
     }
 
-    public static function initConnection(array $credentials):void
+    public static function initConnection(array $credentials): void
     {
-        self::setCredentials($credentials);
+        self::setCredentials($credentials["dbUsername"], $credentials["dbPassword"], $credentials["dbName"], $credentials["dbURL"]);
         $factory = new Factory();
         self::$con = $factory->createLazyConnection(
             self::$dbCredentials['username'] . ':' . self::$dbCredentials['password'] . '@' .
