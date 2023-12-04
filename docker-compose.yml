@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  app:
+    image: webdevops/php-nginx-dev:8.1
+    restart: on-failure
+    container_name: browsergames-app
+    ports:
+      - "54997:80"
+    volumes:
+      - ./:/app
+    working_dir: /app
+    depends_on:
+      - mariadb
+    environment:
+      WEB_DOCUMENT_ROOT: /app/src
+      WEB_DOCUMENT_INDEX: index.php
+      XDEBUG_CLIENT_HOST: host.docker.internal
+      PHP_DATE_TIMEZONE: Europe/Berlin
+
+  mariadb:
+    image: mariadb:10.5.8
+    restart: on-failure
+    container_name: browsergames-mariadb
+    volumes:
+      - database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: on-failure
+    container_name: browsergames-phpmyadmin
+    depends_on:
+      - mariadb
+    ports:
+      - "54998:80"
+    environment:
+      PMA_HOST: browsergames-mariadb
+
+volumes:
+  database:
