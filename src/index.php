@@ -4,7 +4,6 @@ namespace BrowserGames;
 
 require '../vendor/autoload.php';
 
-use Fbartz\BrowserGames\Repository\UserRepository;
 use Fbartz\BrowserGames\Service\Database;
 
 $dbData = parse_ini_file("setup.ini",false,INI_SCANNER_RAW);
