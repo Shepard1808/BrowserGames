@@ -1,0 +1,21 @@
+{
+    "name": "fbartz/browser-games",
+    "description": "Collection of minigames for a browser",
+    "autoload": {
+        "psr-4": {
+            "Fbartz\\BrowserGames\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Florian Bartz"
+        }
+    ],
+    "require": {
+        "react/http": "^1.9",
+        "react/promise": "^3.1",
+        "react/mysql": "^0.6.0",
+        "twbs/bootstrap": "^5.3",
+        "voryx/websocketmiddleware": "^2.0"
+    }
+}
