@@ -1,6 +1,6 @@
 <?php
 
-namespace BrowserGames\Repository;
+namespace Fbartz\BrowserGames\Repository;
 
 class BaseRepository
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Websocket;
+namespace Fbartz\BrowserGames\Controller\Websocket;
 
 class WebsocketController
 {
