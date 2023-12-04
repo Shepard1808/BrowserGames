@@ -5,7 +5,7 @@ namespace Fbartz\BrowserGames\View\Page;
 class Router
 {
 
-    public static function loadPage(int $page = 1): void
+    public static function route(int $page = 1): void
     {
         switch ($page) {
             case 1:

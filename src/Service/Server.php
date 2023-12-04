@@ -25,7 +25,7 @@ class Server
         $this->websocketController = new WebsocketController();
         $this->httpController = new HttpController($loop,$this->websocketController->getMiddleware());
 
-        $this->httpController->getServer()->listen(new SocketServer("0.0.0.0:55498"));
+        $this->httpController->getServer()->listen(new SocketServer("0.0.0.0:5000"));
         $loop->run();
 
     }
