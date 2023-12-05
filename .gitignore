@@ -2,4 +2,4 @@
 /vendor/
 .key
 /src/setup.ini
-src/View/Assets/Css/bootstrap
+src/View/Assets/dist
