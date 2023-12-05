@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Menu</title>
+    <link rel="stylesheet" href="./View/Assets/Css/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="#">BrowserGames</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button class="btn btn-primary">Login / Sign Up</button>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container text-center mt-5">
+    <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+        <div class="col">
+            <div class="card">
+<!--                <img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <h5 class="card-title">Board Games</h5>
+                    <p class="card-text">Play with 2-4 Players, who ever reaches the goal first wins</p>
+                    <a href="#" class="btn btn-outline-primary">Start</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <!--                <img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <h5 class="card-title">Party Games</h5>
+                    <p class="card-text">Play with 2-4 Players, to practise, get new Highscores or just to have fun</p>
+                    <a href="#" class="btn btn-outline-primary">Start</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <!--                <img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <h5 class="card-title">Classics</h5>
+                    <p class="card-text">Play with 2-4 Players, this is a collection of old to new games, whether it's card or bord games</p>
+                    <a href="#" class="btn btn-outline-primary">Start</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

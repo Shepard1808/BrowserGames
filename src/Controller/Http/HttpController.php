@@ -34,7 +34,7 @@ class HttpController
 
             if (str_starts_with($path, "/api")) {
 
-            } else if ($path === "/" || str_starts_with($path, "/view")) {
+            } else if ($path === "/" || str_starts_with($path, "/View")) {
                 $type = "";
                 if ($request->getMethod() === "GET") {
                     $type = substr($request->getRequestTarget(), -4);
@@ -55,13 +55,13 @@ class HttpController
                 }
 
                 ob_start();
-                require_once './public/Router.php';
+                require_once './View/Page/Router.php';
                 Router::route((int)($request->getQueryParams()['page'] ?? 1));
                 $content = ob_get_clean();
 
                 if ($type === "text/javascript" || $type === "text/css" || $type === "image/svg+xml") {
 
-                    $path = realpath(__DIR__ . "/../../.." . $request->getRequestTarget());
+                    $path = realpath(__DIR__ . "/../../" . $request->getRequestTarget());
                     $content = file_get_contents($path);
                     if ($content === false) {
                         $content = file_get_contents("../../.." . $request->getRequestTarget());
@@ -70,6 +70,8 @@ class HttpController
 
                 return new Response(200, $this->enhanceHeaders(["Content-Type" => $type]), $content);
 
+            }else{
+                return new Response(403, self::$CORS_HEADERS);
             }
 
             $promise->then(function ($results){

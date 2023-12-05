@@ -9,10 +9,10 @@ class Router
     {
         switch ($page) {
             case 1:
-                include_once("Start/index.html");
+                include("Start/index.html");
                 break;
             case 2:
-                include_once ("Start/login.html");
+                include("Start/login.html");
                 break;
         }
     }
