@@ -2,7 +2,7 @@
 
 namespace Fbartz\BrowserGames\Repository;
 
-trait Singleton
+trait SingletonRepository
 {
 
     private static $instance;

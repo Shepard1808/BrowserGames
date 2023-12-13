@@ -10,7 +10,7 @@ use React\Promise\PromiseInterface;
 class BaseRepository
 {
 
-    use Singleton;
+    use SingletonRepository;
 
     private ConnectionInterface $connection;
     protected string $tableName = '';

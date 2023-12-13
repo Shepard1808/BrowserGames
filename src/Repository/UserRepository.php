@@ -6,6 +6,6 @@ namespace Fbartz\BrowserGames\Repository;
 class UserRepository extends BaseRepository
 {
 
-    use Singleton;
+    use SingletonRepository;
 
 }
