@@ -83,7 +83,10 @@ class HttpController
                     }
                 }
 
-                return new Response(200, $this->enhanceHeaders(["Content-Type" => $type]), $content);
+                if(preg_match("/^[a-zA-Z]/",$type)){
+                    return new Response(200, $this->enhanceHeaders(["Content-Type" => $type]), $content);
+                }
+                return new Response(200, self::$CORS_HEADERS, $content);
 
             }else{
                 return new Response(403, self::$CORS_HEADERS);
@@ -91,19 +94,19 @@ class HttpController
 
             if($promise instanceof Response){
                 return $promise;
-            }else{
-                return $promise->then(function ($results){
-                    var_dump($results);
-                    if (!is_array($results) || !isset($results)) {
-                        return new Response(200, self::$CORS_HEADERS);
-                    }
-                    if (isset($results[1])) {
-                        return new Response($results[0], $this->enhanceHeaders(['Content-Type' => 'application/json']),
-                            json_encode($results[1]));
-                    }
-                    return new Response($results[0], self::$CORS_HEADERS);
-                });
             }
+
+            return $promise->then(function ($results){
+                var_dump($results);
+                if (!is_array($results) || !isset($results)) {
+                    return new Response(200, self::$CORS_HEADERS);
+                }
+                if (isset($results[1])) {
+                    return new Response($results[0], $this->enhanceHeaders(['Content-Type' => 'application/json']),
+                        json_encode($results[1]));
+                }
+                return new Response($results[0], self::$CORS_HEADERS);
+            });
 
         };
 
